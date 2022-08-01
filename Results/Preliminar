@@ -1,37 +1,36 @@
 ## Modelo Basico... falta graficar los effectos de "vdem_pol"
 
+
 dataLA <- read.csv("/Users/sergiobejar/Desktop/LA_Growth.csv")
 
-fixed.plm <- plm(vol_growth~ lag(vol_growth) + vdem_pol + I(vdem_pol^2) +lib_dem_index +dist_mag_mean + election + domesticcredit + vol_inf + spending, data = dataLA, index=c("code_country", "year"), model="within")
-summary(fixed.plm)
+dataLA$polarization <- ((5/6.297)*(dataLA$vdem_pol))-((5/6.297)*(-3.304))
 
-plm(formula = vol_growth ~ lag(vol_growth) + vdem_pol + I(vdem_pol^2) + 
-    lib_dem_index + dist_mag_mean + election + domesticcredit + 
-    vol_inf + spending, data = dataLA, model = "within", index = c("code_country", 
-    "year"))
+fixed.plm <- plm(vol_growth~ lag(vol_growth) + polarization + I(polarization^2) + lib_dem_index +dist_mag_mean + election + domesticcredit + vol_inf + spending + cbi_g, data = dataLA, index=c("code_country", "year"), model="within")
+summary(fixed.plm)
 
 Unbalanced Panel: n = 16, T = 4-26, N = 311
 
 Residuals:
     Min.  1st Qu.   Median  3rd Qu.     Max. 
--9.08605 -1.27076 -0.46453  0.82602 12.56549 
+-9.06189 -1.27341 -0.43087  0.82830 12.56305 
 
 Coefficients:
-                   Estimate  Std. Error t-value  Pr(>|t|)    
-lag(vol_growth)  2.1982e-01  5.4847e-02  4.0078 7.822e-05 ***
-vdem_pol         2.4570e-01  2.7656e-01  0.8884   0.37506    
-I(vdem_pol^2)   -2.0745e-01  1.0283e-01 -2.0174   0.04458 *  
-lib_dem_index   -4.1993e-01  2.1242e+00 -0.1977   0.84343    
-dist_mag_mean    7.8429e-03  1.0427e-02  0.7522   0.45256    
-election         1.8044e-01  2.9407e-01  0.6136   0.53998    
-domesticcredit  -3.1062e-02  1.6810e-02 -1.8478   0.06566 .  
-vol_inf          1.7233e-04  7.9693e-05  2.1624   0.03142 *  
-spending         2.0434e-01  9.9440e-02  2.0549   0.04080 *  
+                     Estimate  Std. Error t-value  Pr(>|t|)    
+lag(vol_growth)    2.1750e-01  5.5108e-02  3.9468 9.981e-05 ***
+polarization       2.0160e+00  9.2151e-01  2.1877   0.02951 *  
+I(polarization^2) -3.2934e-01  1.6331e-01 -2.0166   0.04467 *  
+lib_dem_index     -1.8537e-01  2.1766e+00 -0.0852   0.93219    
+dist_mag_mean      8.9749e-03  1.0676e-02  0.8406   0.40125    
+election           1.7636e-01  2.9457e-01  0.5987   0.54983    
+domesticcredit    -3.0527e-02  1.6865e-02 -1.8101   0.07133 .  
+vol_inf            1.7232e-04  7.9796e-05  2.1595   0.03164 *  
+spending           2.0330e-01  9.9590e-02  2.0414   0.04213 *  
+cbi_g             -1.0516e+00  2.0721e+00 -0.5075   0.61218    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Total Sum of Squares:    1627.7
-Residual Sum of Squares: 1449.1
-R-Squared:      0.10972
-Adj. R-Squared: 0.035016
-F-statistic: 3.91652 on 9 and 286 DF, p-value: 0.00010321
+Residual Sum of Squares: 1447.8
+R-Squared:      0.11053
+Adj. R-Squared: 0.032504
+F-statistic: 3.54148 on 10 and 285 DF, p-value: 0.00019631
