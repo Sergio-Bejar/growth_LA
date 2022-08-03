@@ -6,7 +6,7 @@ dataLA <- rio::import(here::here("data", "BaseGrowth.xlsx"))
 
 fixed.plm <- plm(log(vol_gdppc) ~ lag(vol_gdppc) + tyh_seats + I(tyh_seats^2) + 
                          vol_spending  + vol_inf + FCF_VarPorc + FDI_VarPorc+
-                         cbi_g + lib_dem_index + dist_mag_mean + log(gdppc), 
+                         cbi_g + lib_dem_index + dist_mag_mean, 
                  data = dataLA, index=c("code_country", "year"), 
                  model="within", effects ="twoways")
 
