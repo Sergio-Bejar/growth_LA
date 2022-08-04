@@ -1,0 +1,4 @@
+## XTPCSE controlando por hetero y AR(1) 
+xtpcse vol_gdppc tyh_seats c.tyh_seats#c.tyh_seats fcf_varporc l.vol_gdppc election log_inflation vol_spending lib_dem_index  dist_mag_mean, correlation(psar1) hetonly pairwise
+margins, at(tyh_seats = (.1(1)10)) force
+plotmargins
