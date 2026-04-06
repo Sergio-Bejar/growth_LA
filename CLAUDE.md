@@ -6,7 +6,7 @@ polarization and economic growth volatility in Latin American and global democra
 Target journal: World Development.
 
 ## Authors
-- Sergio Béjar (SJSU, corresponding)
+- Sergio Béjar (CIDE, corresponding)
 - Federico Acosta y Lara (WashU)
 - Juan Andrés Moraes (Universidad de la República)
 
