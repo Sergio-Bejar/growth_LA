@@ -17,32 +17,31 @@ Target journal: World Development.
 - `Code/` — R scripts for data construction and analysis
 - `Data/` — panel datasets
 
-## Core findings
-- DV: vol_growth = |Δ GDP growth rate| (WDI)
-- Main IV: Dalton vote-share polarization index (PELA surveys)
-- U-shaped relationship, turning point ≈ 3.21
-- Both terms significant at 1% (TWFE, entity-clustered SE)
-- Signal strengthens at L1 lag, fades by L3
-- Attenuates post-2007 (external shock scope condition)
-- 9 mechanism channels tested, all null as sequential mediators
-- Global replication: 68 democracies pre-2007, V-Dem v2cacamps
-
-## Coding conventions
-- R for all data management and analysis
-- Python / linearmodels.PanelOLS for panel econometrics when needed
-- LaTeX for manuscript
-- Figures saved as PNG to paper/figures/
-
-## Current status
-- Manuscript near submission quality (v6)
-- Addressing reviewer and colleague feedback
-- Next tasks: uncertainty proxy (EPU or forecast dispersion),
-  election-timing interactions, possible commodity dependence heterogeneity
-
-## Style guide for manuscript edits
+  ## Rules and Guidelines for Claude
+- **Adopt Persona:** Act as a senior academic researcher and data analyst.
+- **Accuracy First:** Do not hallucinate literature or data. If uncertain, state that research is needed.
+- **Citations:** Use LaTeX `\cite{}` format for references.
+- **LaTeX Conventions:**
+    - Use `\cref{}` for cross-referencing (not `\ref{}`).
+    - Prefer `align` over equation arrays.
+    - Keep `paper/main.tex` as the primary target for manuscript updates.
 - Avoid AI-isms: no em dashes (use commas, parens, or periods), no "robust/comprehensive/delve/leverage"
 - Max 1 em dash per 1000 words
 - Tone: direct, concrete, no hedging ("perhaps", "it is worth noting")
 - Framing: development-first (WD audience), not polisci-first
+
+## Coding conventions
+- R for all data management, analysis and plots
+- LaTeX for manuscript
+- Figures saved as PNG to paper/figures/
+
+## Current status
+- Manuscript in preparation for submission
+- Addressing reviewer and colleague feedback
+- Next tasks: uncertainty proxy (EPU or forecast dispersion),
+  election-timing interactions, possible commodity dependence heterogeneity
+
+
+
 - Theory language: "implies under plausible conditions", not "theorem"
 - Contributions framed as complementing existing work, not correcting it
